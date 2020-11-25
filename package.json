@@ -1,0 +1,23 @@
+{
+  "name": "zetianul.github.io",
+  "version": "1.0.0",
+  "description": "personal lab",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zetianul/zetianul.github.io.git"
+  },
+  "author": "zetianul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zetianul/zetianul.github.io/issues"
+  },
+  "homepage": "https://github.com/zetianul/zetianul.github.io#readme",
+  "dependencies": {
+    "mobx": "^6.0.4",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
