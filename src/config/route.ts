@@ -1,4 +1,4 @@
-export const routeConfig: RouteItem[] = [
+export const routeConfig = [
   {
     name: '首页',
     path: '/',

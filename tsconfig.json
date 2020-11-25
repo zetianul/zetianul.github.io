@@ -1,10 +1,23 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "module": "esnext",
+    "baseUrl": "",
     "paths": {
-      "@/*":["src/*"]
+      "@/*":["./src/*"],
     },
     "jsx": "react",
-    "lib": [ "es2015", "DOM" ]
-  }
+    "lib": [ "es2017", "DOM" ],
+    "moduleResolution": "node",
+    "allowJs": true
+  },
+
+  "typeRoots": ["./node_modules/@types"],
+  "include": [
+    "./type-declarations/*.d.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.js",
+    "./src/**/*.jsx",
+  ],
+  "exclude": ["node_modules", "dll", "webpack", "dist"]
 }

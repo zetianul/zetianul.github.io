@@ -484,6 +484,13 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.10.4"
 
+"@babel/plugin-syntax-typescript@^7.12.1":
+  version "7.12.1"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/@babel/plugin-syntax-typescript/download/@babel/plugin-syntax-typescript-7.12.1.tgz#460ba9d77077653803c3dd2e673f76d66b4029e5"
+  integrity sha1-Rgup13B3ZTgDw90uZz921mtAKeU=
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.10.4"
+
 "@babel/plugin-transform-arrow-functions@^7.12.1":
   version "7.12.1"
   resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/@babel/plugin-transform-arrow-functions/download/@babel/plugin-transform-arrow-functions-7.12.1.tgz#8083ffc86ac8e777fbe24b5967c4b2521f3cb2b3"
@@ -766,6 +773,15 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.10.4"
 
+"@babel/plugin-transform-typescript@^7.12.1":
+  version "7.12.1"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/@babel/plugin-transform-typescript/download/@babel/plugin-transform-typescript-7.12.1.tgz#d92cc0af504d510e26a754a7dbc2e5c8cd9c7ab4"
+  integrity sha1-2SzAr1BNUQ4mp1Sn28LlyM2cerQ=
+  dependencies:
+    "@babel/helper-create-class-features-plugin" "^7.12.1"
+    "@babel/helper-plugin-utils" "^7.10.4"
+    "@babel/plugin-syntax-typescript" "^7.12.1"
+
 "@babel/plugin-transform-unicode-escapes@^7.12.1":
   version "7.12.1"
   resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/@babel/plugin-transform-unicode-escapes/download/@babel/plugin-transform-unicode-escapes-7.12.1.tgz#5232b9f81ccb07070b7c3c36c67a1b78f1845709"
@@ -877,6 +893,15 @@
     "@babel/plugin-transform-react-jsx-source" "^7.12.1"
     "@babel/plugin-transform-react-pure-annotations" "^7.12.1"
 
+"@babel/preset-typescript@^7.12.7":
+  version "7.12.7"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/@babel/preset-typescript/download/@babel/preset-typescript-7.12.7.tgz#fc7df8199d6aae747896f1e6c61fc872056632a3"
+  integrity sha1-/H34GZ1qrnR4lvHmxh/IcgVmMqM=
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.10.4"
+    "@babel/helper-validator-option" "^7.12.1"
+    "@babel/plugin-transform-typescript" "^7.12.1"
+
 "@babel/runtime@^7.1.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.8.4":
   version "7.12.5"
   resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/@babel/runtime/download/@babel/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
@@ -934,7 +959,7 @@
     readdirp "^2.2.1"
     upath "^1.1.1"
 
-"@types/json-schema@^7.0.5":
+"@types/json-schema@^7.0.5", "@types/json-schema@^7.0.6":
   version "7.0.6"
   resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/@types/json-schema/download/@types/json-schema-7.0.6.tgz#f4c7ec43e81b319a9815115031709f26987891f0"
   integrity sha1-9MfsQ+gbMZqYFRFQMXCfJph4kfA=
@@ -944,7 +969,7 @@ ajv-keywords@^3.5.2:
   resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/ajv-keywords/download/ajv-keywords-3.5.2.tgz#31f29da5ab6e00d1c2d329acf7b5929614d5014d"
   integrity sha1-MfKdpatuANHC0yms97WSlhTVAU0=
 
-ajv@^6.12.4:
+ajv@^6.12.4, ajv@^6.12.5:
   version "6.12.6"
   resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/ajv/download/ajv-6.12.6.tgz#baf5a62e802b07d977034586f8c3baf5adf26df4"
   integrity sha1-uvWmLoArB9l3A0WG+MO69a3ybfQ=
@@ -1128,6 +1153,11 @@ call-bind@^1.0.0:
     function-bind "^1.1.1"
     get-intrinsic "^1.0.0"
 
+camelcase@^6.2.0:
+  version "6.2.0"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/camelcase/download/camelcase-6.2.0.tgz#924af881c9d525ac9d87f40d964e5cea982a1809"
+  integrity sha1-kkr4gcnVJaydh/QNlk5c6pgqGAk=
+
 caniuse-lite@^1.0.30001157:
   version "1.0.30001161"
   resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/caniuse-lite/download/caniuse-lite-1.0.30001161.tgz#64f7ffe79ee780b8c92843ff34feb36cea4651e0"
@@ -1236,6 +1266,29 @@ core-util-is@~1.0.0:
   version "1.0.2"
   resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/core-util-is/download/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
+
+css-loader@^5.0.1:
+  version "5.0.1"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/css-loader/download/css-loader-5.0.1.tgz#9e4de0d6636a6266a585bd0900b422c85539d25f"
+  integrity sha1-nk3g1mNqYmalhb0JALQiyFU50l8=
+  dependencies:
+    camelcase "^6.2.0"
+    cssesc "^3.0.0"
+    icss-utils "^5.0.0"
+    loader-utils "^2.0.0"
+    postcss "^8.1.4"
+    postcss-modules-extract-imports "^3.0.0"
+    postcss-modules-local-by-default "^4.0.0"
+    postcss-modules-scope "^3.0.0"
+    postcss-modules-values "^4.0.0"
+    postcss-value-parser "^4.1.0"
+    schema-utils "^3.0.0"
+    semver "^7.3.2"
+
+cssesc@^3.0.0:
+  version "3.0.0"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/cssesc/download/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
+  integrity sha1-N3QZGZA7hoVl4cCep0dEXNGJg+4=
 
 debug@^2.2.0, debug@^2.3.3:
   version "2.6.9"
@@ -1550,6 +1603,16 @@ hoist-non-react-statics@^3.1.0:
   dependencies:
     react-is "^16.7.0"
 
+icss-utils@^5.0.0:
+  version "5.1.0"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/icss-utils/download/icss-utils-5.1.0.tgz#c6be6858abd013d768e98366ae47e25d5887b1ae"
+  integrity sha1-xr5oWKvQE9do6YNmrkfiXViHsa4=
+
+indexes-of@^1.0.1:
+  version "1.0.1"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/indexes-of/download/indexes-of-1.0.1.tgz#f30f716c8e2bd346c7b67d3df3915566a7c05607"
+  integrity sha1-8w9xbI4r00bHtn0985FVZqfAVgc=
+
 inflight@^1.0.4:
   version "1.0.6"
   resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/inflight/download/inflight-1.0.6.tgz#49bd6331d7d02d0c09bc910a1075ba8165b56df9"
@@ -1779,6 +1842,15 @@ loader-utils@^1.4.0:
     emojis-list "^3.0.0"
     json5 "^1.0.1"
 
+loader-utils@^2.0.0:
+  version "2.0.0"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/loader-utils/download/loader-utils-2.0.0.tgz#e4cace5b816d425a166b5f097e10cd12b36064b0"
+  integrity sha1-5MrOW4FtQloWa18JfhDNErNgZLA=
+  dependencies:
+    big.js "^5.2.2"
+    emojis-list "^3.0.0"
+    json5 "^2.1.2"
+
 locate-path@^3.0.0:
   version "3.0.0"
   resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/locate-path/download/locate-path-3.0.0.tgz#dbec3b3ab759758071b58fe59fc41871af21400e"
@@ -1880,6 +1952,11 @@ ms@2.1.2:
   version "2.1.2"
   resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/ms/download/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha1-0J0fNXtEP0kzgqjrPM0YOHKuYAk=
+
+nanoid@^3.1.18:
+  version "3.1.18"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/nanoid/download/nanoid-3.1.18.tgz#0680db22ab01c372e89209f5d18283d98de3e96d"
+  integrity sha1-BoDbIqsBw3Lokgn10YKD2Y3j6W0=
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -2037,6 +2114,59 @@ posix-character-classes@^0.1.0:
   version "0.1.1"
   resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/posix-character-classes/download/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
   integrity sha1-AerA/jta9xoqbAL+q7jB/vfgDqs=
+
+postcss-modules-extract-imports@^3.0.0:
+  version "3.0.0"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/postcss-modules-extract-imports/download/postcss-modules-extract-imports-3.0.0.tgz#cda1f047c0ae80c97dbe28c3e76a43b88025741d"
+  integrity sha1-zaHwR8CugMl9vijD52pDuIAldB0=
+
+postcss-modules-local-by-default@^4.0.0:
+  version "4.0.0"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/postcss-modules-local-by-default/download/postcss-modules-local-by-default-4.0.0.tgz#ebbb54fae1598eecfdf691a02b3ff3b390a5a51c"
+  integrity sha1-67tU+uFZjuz99pGgKz/zs5ClpRw=
+  dependencies:
+    icss-utils "^5.0.0"
+    postcss-selector-parser "^6.0.2"
+    postcss-value-parser "^4.1.0"
+
+postcss-modules-scope@^3.0.0:
+  version "3.0.0"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/postcss-modules-scope/download/postcss-modules-scope-3.0.0.tgz#9ef3151456d3bbfa120ca44898dfca6f2fa01f06"
+  integrity sha1-nvMVFFbTu/oSDKRImN/Kby+gHwY=
+  dependencies:
+    postcss-selector-parser "^6.0.4"
+
+postcss-modules-values@^4.0.0:
+  version "4.0.0"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/postcss-modules-values/download/postcss-modules-values-4.0.0.tgz#d7c5e7e68c3bb3c9b27cbf48ca0bb3ffb4602c9c"
+  integrity sha1-18Xn5ow7s8myfL9Iyguz/7RgLJw=
+  dependencies:
+    icss-utils "^5.0.0"
+
+postcss-selector-parser@^6.0.2, postcss-selector-parser@^6.0.4:
+  version "6.0.4"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/postcss-selector-parser/download/postcss-selector-parser-6.0.4.tgz#56075a1380a04604c38b063ea7767a129af5c2b3"
+  integrity sha1-VgdaE4CgRgTDiwY+p3Z6Epr1wrM=
+  dependencies:
+    cssesc "^3.0.0"
+    indexes-of "^1.0.1"
+    uniq "^1.0.1"
+    util-deprecate "^1.0.2"
+
+postcss-value-parser@^4.1.0:
+  version "4.1.0"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/postcss-value-parser/download/postcss-value-parser-4.1.0.tgz#443f6a20ced6481a2bda4fa8532a6e55d789a2cb"
+  integrity sha1-RD9qIM7WSBor2k+oUypuVdeJoss=
+
+postcss@^8.1.4:
+  version "8.1.10"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/postcss/download/postcss-8.1.10.tgz#129834f94c720554d2cfdaeb27d5542ac4a026ea"
+  integrity sha1-Epg0+UxyBVTSz9rrJ9VUKsSgJuo=
+  dependencies:
+    colorette "^1.2.1"
+    nanoid "^3.1.18"
+    source-map "^0.6.1"
+    vfile-location "^3.2.0"
 
 process-nextick-args@~2.0.0:
   version "2.0.1"
@@ -2267,6 +2397,15 @@ schema-utils@^2.6.5:
     ajv "^6.12.4"
     ajv-keywords "^3.5.2"
 
+schema-utils@^3.0.0:
+  version "3.0.0"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/schema-utils/download/schema-utils-3.0.0.tgz#67502f6aa2b66a2d4032b4279a2944978a0913ef"
+  integrity sha1-Z1AvaqK2ai1AMrQnmilEl4oJE+8=
+  dependencies:
+    "@types/json-schema" "^7.0.6"
+    ajv "^6.12.5"
+    ajv-keywords "^3.5.2"
+
 semver@7.0.0:
   version "7.0.0"
   resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/semver/download/semver-7.0.0.tgz#5f3ca35761e47e05b206c6daff2cf814f0316b8e"
@@ -2276,6 +2415,11 @@ semver@^5.4.1, semver@^5.5.0, semver@^5.6.0:
   version "5.7.1"
   resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/semver/download/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
   integrity sha1-qVT5Ma66UI0we78Gnv8MAclhFvc=
+
+semver@^7.3.2:
+  version "7.3.2"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/semver/download/semver-7.3.2.tgz#604962b052b81ed0786aae84389ffba70ffd3938"
+  integrity sha1-YElisFK4HtB4aq6EOJ/7pw/9OTg=
 
 set-value@^2.0.0, set-value@^2.0.1:
   version "2.0.1"
@@ -2343,6 +2487,11 @@ source-map@^0.5.0, source-map@^0.5.6:
   resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/source-map/download/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
 
+source-map@^0.6.1:
+  version "0.6.1"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/source-map/download/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
+  integrity sha1-dHIq8y6WFOnCh6jQu95IteLxomM=
+
 split-string@^3.0.1, split-string@^3.0.2:
   version "3.1.0"
   resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/split-string/download/split-string-3.1.0.tgz#7cb09dda3a86585705c64b39a6466038682e8fe2"
@@ -2364,6 +2513,14 @@ string_decoder@~1.1.1:
   integrity sha1-nPFhG6YmhdcDCunkujQUnDrwP8g=
   dependencies:
     safe-buffer "~5.1.0"
+
+style-loader@^2.0.0:
+  version "2.0.0"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/style-loader/download/style-loader-2.0.0.tgz#9669602fd4690740eaaec137799a03addbbc393c"
+  integrity sha1-lmlgL9RpB0DqrsE3eZoDrdu8OTw=
+  dependencies:
+    loader-utils "^2.0.0"
+    schema-utils "^3.0.0"
 
 supports-color@^5.3.0:
   version "5.5.0"
@@ -2452,6 +2609,11 @@ union-value@^1.0.0:
     is-extendable "^0.1.1"
     set-value "^2.0.1"
 
+uniq@^1.0.1:
+  version "1.0.1"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/uniq/download/uniq-1.0.1.tgz#b31c5ae8254844a3a8281541ce2b04b865a734ff"
+  integrity sha1-sxxa6CVIRKOoKBVBzisEuGWnNP8=
+
 unset-value@^1.0.0:
   version "1.0.0"
   resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/unset-value/download/unset-value-1.0.0.tgz#8376873f7d2335179ffb1e6fc3a8ed0dfc8ab559"
@@ -2482,7 +2644,7 @@ use@^3.1.0:
   resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/use/download/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
   integrity sha1-1QyMrHmhn7wg8pEfVuuXP04QBw8=
 
-util-deprecate@~1.0.1:
+util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/util-deprecate/download/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
@@ -2491,6 +2653,11 @@ value-equal@^1.0.1:
   version "1.0.1"
   resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/value-equal/download/value-equal-1.0.1.tgz#1e0b794c734c5c0cade179c437d356d931a34d6c"
   integrity sha1-Hgt5THNMXAyt4XnEN9NW2TGjTWw=
+
+vfile-location@^3.2.0:
+  version "3.2.0"
+  resolved "http://artifactory.intra.ke.com/artifactory/api/npm/npm-virtual/vfile-location/download/vfile-location-3.2.0.tgz#d8e41fbcbd406063669ebf6c33d56ae8721d0f3c"
+  integrity sha1-2OQfvL1AYGNmnr9sM9Vq6HIdDzw=
 
 wrappy@1:
   version "1.0.2"

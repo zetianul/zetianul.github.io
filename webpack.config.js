@@ -7,6 +7,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue', '.json', '.less'],
     alias: {
       '@': path.resolve(__dirname, 'src'),
     } 
@@ -26,7 +27,7 @@ module.exports = {
         use: [{
           loader: 'babel-loader',
           options:{
-            presets: ['@babel/react', '@babel/preset-env']
+            presets: ['@babel/preset-typescript', '@babel/react', '@babel/preset-env']
           }
         }]
       }
