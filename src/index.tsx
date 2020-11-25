@@ -1,7 +1,14 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import { HashRouter } from 'react-router-dom';
+import { routeConfig } from '@/config/route';
+import { getRoutes } from '@/uitls/getRoutes';
+
+
 
 ReactDom.render(
-  <h1>hello react</h1>,
+  <HashRouter>
+    
+  </HashRouter>,
   document.getElementById('root')
 )
