@@ -45,3 +45,14 @@ self.addEventListener('fetch', function(event) {
     }
   }));
 });
+
+self.addEventListener('activate', function(e){
+  console.log('activate')
+  e.waitUntil(
+    caches.keys().then(function(keyList){
+      return Promise.all(
+        keyList.map((key) => caches.delete(key))
+      )
+    })
+  )
+})

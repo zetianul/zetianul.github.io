@@ -1,10 +1,11 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
   output:{
     path : path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: '[name]-[hash].js'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue', '.json', '.less'],
@@ -12,6 +13,13 @@ module.exports = {
       '@': path.resolve(__dirname, 'src'),
     } 
   },
+  plugins:[
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        filename: './index.html',
+        inject: 'body'
+      })
+  ],
   module:{
     rules: [
       {
@@ -33,7 +41,7 @@ module.exports = {
       }
     ]
   },
-  optimization:{
-    minimize: false
-  }
+  // optimization:{
+  //   minimize: false
+  // }
 }
