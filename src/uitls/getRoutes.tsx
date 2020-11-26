@@ -1,31 +1,39 @@
 import React from 'react';
 import Loadable from 'react-loadable';
-import { Route, Redirect } from 'react-router-dom';
+import LoadingPage from '@/components/LoadingPage';
+import { Route, Redirect, Switch } from 'react-router-dom';
 
-const LoadableComponent = (route: any) => {
+const getLoadableComponent = (route: any) => {
   return Loadable({
     loader: route.component,
-    loading: () => import('@/components/LoadingPage')
+    loading: LoadingPage,
+    render:(loaded: any, props: any) => {
+      console.log(loaded, props)
+      if(route.title){
+        document.title = route.title
+      }
+      const Component = loaded.default;
+      return <Component {...props} />;
+    }
   })
 }
 
 export default function getRoutes(routes, parentPath){
-  return (
-    <React.Fragment>
-      {
-        routes.map(i => {
-          const path = `${parentPath + i.path}`.replace(/\/+/g, '/')
-          if(i.children){
-            return getRoutes(i.children, path)
+  return <Switch>
+    {
+      routes.map(i => {
+        const path = `${parentPath + i.path}`.replace(/\/+/g, '/')
+        if(i.children){
+          return getRoutes(i.children, path)
+        }else{
+          if(i.redirect){
+            return <Redirect to={i.redirect} />
           }else{
-            if(i.redirect){
-              return <Redirect to={i.redirect} />
-            }else{
-              return <Route path={path} exact={i.exact} strict={i.strict}><LoadableComponent {...i}/></Route>
-            }
+            return <Route path={path} exact={i.exact} strict={i.strict} component={getLoadableComponent(i)} />
           }
-        })
-      }
-    </React.Fragment>
-  )
+        }
+      })
+    }
+  </Switch>
+
 }

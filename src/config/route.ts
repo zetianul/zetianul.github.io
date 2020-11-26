@@ -1,6 +1,7 @@
 export const routeConfig = [
   {
-    name: '首页',
+    name: 'serviceWorker',
+    title:'service worker',
     path: '/',
     component: () => import('@/pages/serviceWorker')
   }

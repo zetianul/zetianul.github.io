@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "personal lab",
   "scripts": {
+    "dev": "webpack --env==development",
     "build": "webpack"
   },
   "repository": {
