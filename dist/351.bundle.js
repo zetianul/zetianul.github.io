@@ -37,7 +37,7 @@ var update = injectStylesIntoStyleTag_default()(serviceWorker/* default */.Z, op
 
 
 /* harmony default export */ const src_pages_serviceWorker = (function (props) {
-  return /*#__PURE__*/react.createElement("div", null, "\u6211\u5C31\u662F\u7B2C\u4E00\u4E2A\u7EC4\u4EF6\u54AF");
+  return /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("title", null, "\u8FD9\u662Fservice worker"), "\u563B\u563B\u563B");
 });
 
 /***/ }),

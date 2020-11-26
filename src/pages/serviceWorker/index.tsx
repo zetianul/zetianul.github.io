@@ -3,6 +3,12 @@ import './index.less';
 
 export default (props) => {
   return (
-    <div>我就是第一个组件咯</div>
+    <div>
+      <title>
+        这是service worker
+      </title>
+      嘻嘻嘻
+
+    </div>
   )
 }

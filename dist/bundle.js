@@ -2240,8 +2240,6 @@ var getLoadableComponent = function getLoadableComponent(route) {
     loader: route.component,
     loading: LoadingPage,
     render: function render(loaded, props) {
-      console.log(loaded, props);
-
       if (route.title) {
         document.title = route.title;
       }

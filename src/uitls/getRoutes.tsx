@@ -8,7 +8,6 @@ const getLoadableComponent = (route: any) => {
     loader: route.component,
     loading: LoadingPage,
     render:(loaded: any, props: any) => {
-      console.log(loaded, props)
       if(route.title){
         document.title = route.title
       }
