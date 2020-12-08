@@ -1,0 +1,1 @@
+(self.webpackChunkzetianul_github_io=self.webpackChunkzetianul_github_io||[]).push([[457],{457:(e,t,o)=>{"use strict";o.r(t),o.d(t,{default:()=>l});var u=o(294);const l=function(e){return console.log("welcome to the mobx demo"),u.createElement("div",null,"hi mobx")}}}]);

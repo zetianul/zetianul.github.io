@@ -3,8 +3,8 @@ var CACHE_NAME = 'zetianul-cache-v1';
 var urlsToCache = [
   '/dist/',
   '/dist/index.html',
-  '/dist/bundle.js',
-  '/dist/351.bundle.js',
+  // '/dist/bundle.js',
+  // '/dist/351.bundle.js',
 ]
 
 
@@ -48,11 +48,15 @@ self.addEventListener('fetch', function(event) {
 
 self.addEventListener('activate', function(e){
   console.log('activate')
-  e.waitUntil(
-    caches.keys().then(function(keyList){
-      return Promise.all(
-        keyList.map((key) => caches.delete(key))
-      )
-    })
-  )
+  // e.waitUntil(
+  //   caches.keys().then(function(keyList){
+  //     return Promise.all(
+  //       keyList.map((key) => caches.delete(key))
+  //     )
+  //   })
+  // )
+})
+
+self.addEventListener('push',function(e){
+  console.log(e)
 })

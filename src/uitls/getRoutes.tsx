@@ -3,13 +3,13 @@ import Loadable from 'react-loadable';
 import LoadingPage from '@/components/LoadingPage';
 import { Route, Redirect, Switch } from 'react-router-dom';
 
-const getLoadableComponent = (route: any) => {
+const getLoadableComponent = (route: RouteItem) => {
   return Loadable({
     loader: route.component,
     loading: LoadingPage,
     render:(loaded: any, props: any) => {
-      if(route.title){
-        document.title = route.title
+      if(route.name){
+        document.title = route.name
       }
       const Component = loaded.default;
       return <Component {...props} />;

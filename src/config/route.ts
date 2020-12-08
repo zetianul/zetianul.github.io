@@ -1,8 +1,13 @@
-export const routeConfig = [
+export const routeConfig: RouteItem[] = [
   {
-    name: 'serviceWorker',
-    title:'service worker',
+    name:'service worker',
     path: '/',
+    exact: true,
     component: () => import('@/pages/serviceWorker')
+  },
+  {
+    name: 'mobx demo',
+    path: '/mobx',
+    component: () => import('@/pages/mobxDemo'),
   }
 ]
