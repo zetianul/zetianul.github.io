@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 import { HashRouter, Route } from 'react-router-dom';
 import { routeConfig } from '@/config/route';
 import getRoutes from '@/uitls/getRoutes';
+import '@/style/index.less'
 
 
 const elements = getRoutes(routeConfig, '/')

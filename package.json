@@ -18,6 +18,7 @@
   "homepage": "https://github.com/zetianul/zetianul.github.io#readme",
   "dependencies": {
     "chalk": "^4.1.0",
+    "classnames": "^2.2.6",
     "mobx": "^6.0.4",
     "mobx-react": "^7.0.5",
     "react": "^17.0.1",
@@ -36,6 +37,8 @@
     "babel-loader": "^8.2.1",
     "css-loader": "^5.0.1",
     "html-webpack-plugin": "^5.0.0-alpha.14",
+    "less": "^3.12.2",
+    "less-loader": "^7.1.0",
     "style-loader": "^2.0.0",
     "webpack": "^5.8.0",
     "webpack-cli": "^4.2.0",

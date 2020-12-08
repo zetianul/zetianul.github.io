@@ -9,5 +9,10 @@ export const routeConfig: RouteItem[] = [
     name: 'mobx demo',
     path: '/mobx',
     component: () => import('@/pages/mobxDemo'),
+  },
+  {
+    name: '小游戏',
+    path: '/games',
+    component: () => import('@/pages/games')
   }
 ]
