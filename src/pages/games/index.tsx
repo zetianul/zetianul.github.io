@@ -9,7 +9,7 @@ export default () => {
   return (
     <div className="games">
       <div className="title">
-        skljfslkdjflkdsjflksdjfslkdjfs;ldjflksdjflkdsjfslijewoipjrw;poekrpoq[uj[pj]]
+        游戏demo
       </div>
       <div className="tabs">
         {
