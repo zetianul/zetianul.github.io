@@ -18,6 +18,16 @@ export default () => {
 
   } 
 
+  const handleMove = () => {
+    const newLines = JSON.parse(JSON.stringify(lines)); // deepcopy
+
+    for(let i = 0; i< 4; i++){
+      for(let j = 0; j< 4; j++){
+        
+      }
+    }
+  }
+
   useEffect(() => {
     const listener = (e) => {
       console.log(e.keyCode)
