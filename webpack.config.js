@@ -14,6 +14,7 @@ module.exports = {
   devServer: {
     contentBase: './dist',
     port: 9010,
+    hot: true,
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue', '.json', '.less'],

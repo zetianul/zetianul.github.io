@@ -3,12 +3,20 @@ import './style.less';
 
 export default () => {
 
-  const [lines, setLines] = useState([
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-  ])
+  const [lines, setLines] = useState<{number: Number}[][]>(() => {
+    const temp = [];
+    for(let i = 0; i < 4; i++){
+      temp.push([])
+      for(let j = 0; j < 4; j++){
+        temp[i].push({number: 0})
+      }
+    }
+    return temp;
+  });
+
+  const generateNewNumber = () => {
+
+  } 
 
   useEffect(() => {
     const listener = (e) => {
@@ -26,7 +34,7 @@ export default () => {
   return (
     <div className="t-2048-container">
       {
-        lines.map(line => line.map(i =><div className="block">{i}</div>))
+        lines.map(line => line.map(i =><div className="block">{i.number === 0 ? null : i.number}</div>))
       }
     </div>
   )

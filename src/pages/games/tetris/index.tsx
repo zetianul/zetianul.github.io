@@ -4,7 +4,7 @@ import './style.less';
 export default () => {
   return (
     <div>
-      俄罗斯方块哦
+      俄罗斯方块哦1
     </div>
   )
 }

@@ -6,6 +6,8 @@ import { games } from './config';
 export default () => {
   const [current, setCurrent] = useState(0) 
 
+console.log(games)
+
   return (
     <div className="games">
       <div className="title">
@@ -22,8 +24,8 @@ export default () => {
           </a>))
         }
       </div>
-      <div class>
-        {games[current].component()}
+      <div>
+        {games[current].component}
       </div>
     </div>
   )
