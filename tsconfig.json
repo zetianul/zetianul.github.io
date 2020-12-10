@@ -9,9 +9,9 @@
     "jsx": "react",
     "lib": [ "es2017", "DOM" ],
     "moduleResolution": "node",
-    "allowJs": true
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true
   },
-
   "typeRoots": ["./node_modules/@types"],
   "include": [
     "./type-declarations/*.d.ts",
