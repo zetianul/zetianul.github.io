@@ -5,11 +5,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    flex-direction: column;
+    //flex-direction: column;
     .block{
         height: 120px;
         width: 120px;
-        background-color: rgb(224, 125, 11);
+        background-color: rgb(23, 118, 9);
         border-radius: 8px;
         display: flex;
         align-items: center;
@@ -21,6 +21,9 @@
         // &:not(:nth-child(4n)){
         //     margin-right: 10px;
         // }
+        &.empty{
+            background-color: rgb(224, 125, 11);
+        }
     }
 
 }
