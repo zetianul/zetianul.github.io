@@ -12,6 +12,7 @@ module.exports = {
     filename: '[name]-[hash].js'
   },
   devServer: {
+    // mode: 'development',
     contentBase: './dist',
     port: 9010,
     hot: true,
@@ -54,7 +55,7 @@ module.exports = {
       }
     ]
   },
-  // optimization:{
-  //   minimize: false
-  // }
+  optimization:{
+    minimize: false
+  }
 }

@@ -1,29 +1,75 @@
+@media screen and (max-width: 420px){
+    .t-2048-container{
+        width: 100vw;
+        height: 100vw;
+        grid-template-columns: repeat(4, 22vw);
+        grid-template-rows: repeat(4, 22vw);
+    }
+}
 .t-2048-container{
     height: 510px;
     width: 510px;
+    border-radius: 8px;
     margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 120px);
+    grid-template-rows: repeat(4, 120px);
+    column-gap: 10px;
+    row-gap: 10px;
+    padding: 10px;
+    position: relative;
+    background: #bbada0;
+
     //flex-direction: column;
     .block{
-        height: 120px;
-        width: 120px;
-        background-color: rgb(23, 118, 9);
-        border-radius: 8px;
+        position: relative;
+        background-color: rgba(238,228,218,.35);
+        border-radius: 4px;
         display: flex;
         align-items: center;
         justify-content: center;
-    
-        color: white;
+        color: #776e65;
         font-weight: 900;
-        font-size: 32px;
+        font-size: 40px;
         // &:not(:nth-child(4n)){
         //     margin-right: 10px;
         // }
-        &.empty{
-            background-color: rgb(224, 125, 11);
+        .inner-block{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            color: #776e65;
+            background-color: #eee4da;
+            &.empty{
+                background-color: rgba(238,228,218,.35);
+            }
         }
     }
+}
 
+@keyframes fade-in {
+    0% {
+        content: "";
+        background-color: rgba(238,228,218,.35);
+    }
+    99% {
+        content: "";
+        background-color: rgba(238,228,218,.35);
+    }
+    100% {
+        background-color: rgba(238,228,218,.35);
+    }
+}
+
+@keyframes move-one-down{
+    0% { top: 200px }
+    100% {top: 0 }
+}
+
+@keyframes derived {
+    0% {  }
 }

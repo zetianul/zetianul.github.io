@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import AnimationBox from '@/components/AnimationBox';
 import classnames from 'classnames';
 import './style.less';
 
 interface Item{
   number: number;
   moved?: boolean,
+  startLeft?: number,
+  startTop?: number,
 }
 
 interface IState{
@@ -12,7 +15,10 @@ interface IState{
 }
 
 
+
 class TowZeroFourEight extends React.Component<any, IState>{
+
+  private isMobile = false;
 
   private calculating = false;
 
@@ -26,6 +32,9 @@ class TowZeroFourEight extends React.Component<any, IState>{
       }
     }
     this.generateRandomNumbers(temp, 2, 2)
+    if(document.body.clientWidth < 420 ){
+      this.isMobile = true
+    }
     this.state = {
       lines: temp
     }
@@ -42,7 +51,6 @@ class TowZeroFourEight extends React.Component<any, IState>{
   keyDownListener = (e) => {
     const { keyCode } = e;
     if(this.calculating) return;
-    console.log(keyCode)
     if(keyCode === 37){
       this.handleMove()
     }else if(keyCode === 38){
@@ -61,7 +69,6 @@ class TowZeroFourEight extends React.Component<any, IState>{
     const { lines } = this.state;
     const newLines:Item[][] = [] // deepcopy
 
-    const animation: [x1:number, y1: number, x2: number, y2:number][] = [];
 
     for(let i = 0; i< 4; i++){
       newLines[i] = []
@@ -73,11 +80,16 @@ class TowZeroFourEight extends React.Component<any, IState>{
           if(newLines[i].length > 0 && item.number === lines[x1][y1].number && !item.moved ){
             item.number *= 2;
             item.moved = true
-            animation.push([x1, y1, ...transform(i, newLines[i].length - 1)])
+            const [x2, y2] = transform(i, newLines[i].length - 1)
+            item.startLeft = (y1 - y2) * 130
+            item.startTop = (x1 - x2) * 130
           }else{
-            newLines[i].push(Object.assign({}, lines[x1][y1]))
+            let newItem = Object.assign({}, lines[x1][y1])
+            newLines[i].push(newItem)
             if(newLines[i].length - 1 !== j ){
-              animation.push([x1, y1, ...transform(i, newLines[i].length - 1 )])
+              const [x2, y2] = transform(i, newLines[i].length - 1)
+              newItem.startLeft = (y1 - y2) * 130
+              newItem.startTop = (x1 - x2) * 130
             }
           }
         }
@@ -93,11 +105,11 @@ class TowZeroFourEight extends React.Component<any, IState>{
         transformLines[x1][y1].moved = false
       }
     }
-    this.printMatrix(transformLines)
 
-    this.generateRandomNumbers(transformLines, 1, 2)
+    if(this.getMatrix(lines) !== this.getMatrix(transformLines)){
+      this.generateRandomNumbers(transformLines, 1, 2)
+    }
 
-    this.printMatrix(transformLines)
 
     this.setState({
       lines: transformLines
@@ -119,23 +131,33 @@ class TowZeroFourEight extends React.Component<any, IState>{
     for(let i = 0; i < nums; i++){
       if(able.length === 0) return
       const p = able[Math.floor(Math.random() * (able.length))]
-      lines[Math.floor(p/4)][p%4].number = number
+      let chosenOne = lines[Math.floor(p/4)][p%4]
+      chosenOne.number = number
       able.splice(p, 1)
     }
   }
 
-  printMatrix = (lines: Item[][]) => {
-    const str = lines.map(i => i.map(item => item.number).join('-')).join('\n');
-    console.log(str)
-  }
+  getMatrix = (lines: Item[][]):string => lines.map(i => i.map(item => item.number).join('-')).join('\n');
 
 
   render() {
     const { lines } = this.state;
+
     return (
         <div className="t-2048-container">
           {
-            lines.map(line => line.map(i =><div className={classnames("block", {empty: i.number === 0})}>{i.number === 0 ? null : i.number}</div>))
+            lines.map((line, x) => line.map((item, y) =>
+                <div className={classnames("block", { empty: item.number === 0 }) }>
+                  <AnimationBox
+                      number={item.number}
+                      top={item.startTop || 0}
+                      left={item.startLeft || 0}
+                      time={400}
+                  >
+                    {item.number === 0 ? null : item.number}
+                  </AnimationBox>
+                </div>
+            ))
           }
         </div>
     )
