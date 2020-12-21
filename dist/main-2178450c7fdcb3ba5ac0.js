@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 454:
+/***/ 544:
 /***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1286,7 +1286,7 @@ function objectWithoutPropertiesLoose_objectWithoutPropertiesLoose(source, exclu
 }
 // EXTERNAL MODULE: ./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js
 var hoist_non_react_statics_cjs = __webpack_require__(679);
-;// CONCATENATED MODULE: ./node_modules/react-router/esm/react-router.js
+;// CONCATENATED MODULE: ./node_modules/react-router-dom/node_modules/react-router/esm/react-router.js
 
 
 
@@ -2230,7 +2230,7 @@ var routeConfig = [{
   name: '小游戏',
   path: '/games',
   component: function component() {
-    return __webpack_require__.e(/* import() */ 108).then(__webpack_require__.bind(__webpack_require__, 108));
+    return __webpack_require__.e(/* import() */ 775).then(__webpack_require__.bind(__webpack_require__, 775));
   }
 }];
 // EXTERNAL MODULE: ./node_modules/react-loadable/lib/index.js
@@ -4328,7 +4328,7 @@ module.exports = function (list, options) {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => "32a2df203034db49d5c6"
+/******/ 		__webpack_require__.h = () => "2178450c7fdcb3ba5ac0"
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
@@ -4523,6 +4523,6 @@ module.exports = function (list, options) {
 /******/ 	// module factories are used so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module
-/******/ 	__webpack_require__(454);
+/******/ 	__webpack_require__(544);
 /******/ })()
 ;

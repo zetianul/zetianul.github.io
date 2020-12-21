@@ -1,13 +1,17 @@
 import React from 'react'
-import AnimationBox from '@/components/AnimationBox';
+import AnimationBox, {AnimationType} from '@/components/AnimationBox';
 import classnames from 'classnames';
+import { throttle } from "@/uitls";
 import './style.less';
 
 interface Item{
   number: number;
-  moved?: boolean,
+  merged?: boolean,
+  animationType?: AnimationType,
   startLeft?: number,
   startTop?: number,
+  baseTop?:number,
+  baseLeft?:number,
 }
 
 interface IState{
@@ -18,9 +22,17 @@ interface IState{
 
 class TowZeroFourEight extends React.Component<any, IState>{
 
-  private isMobile = false;
+  private readonly isMobile:boolean = false;
+  private blockWidth: number = 120;
+
+  private touchStartX:number;
+  private touchStartY:number;
+  private touchX:number;
+  private touchY:number;
 
   private calculating = false;
+
+  private ref:React.RefObject<HTMLDivElement> = React.createRef();
 
   constructor(props) {
     super(props);
@@ -41,11 +53,24 @@ class TowZeroFourEight extends React.Component<any, IState>{
   }
 
   componentDidMount() {
-    document.addEventListener("keydown", this.keyDownListener)
+    if(this.isMobile){
+      this.ref.current.addEventListener('touchstart', this.touchStart)
+      this.ref.current.addEventListener('touchmove', this.touchMove)
+      this.ref.current.addEventListener('touchend', this.touchEnd)
+      this.blockWidth = this.ref.current.querySelector('.block').clientWidth;
+    }else{
+      document.addEventListener("keydown", this.keyDownListener)
+    }
   }
 
   componentWillUnmount() {
-    document.removeEventListener("keydown", this.keyDownListener)
+    if(this.isMobile){
+      this.ref.current.removeEventListener('touchstart', this.touchStart)
+      this.ref.current.removeEventListener('touchmove', this.touchMove)
+      this.ref.current.removeEventListener('touchend', this.touchEnd)
+    }else{
+      document.removeEventListener("keydown", this.keyDownListener)
+    }
   }
 
   keyDownListener = (e) => {
@@ -62,6 +87,37 @@ class TowZeroFourEight extends React.Component<any, IState>{
     }
   }
 
+  touchStart = (e) => {
+    this.touchStartX = e.touches[0]?.pageX;
+    this.touchStartY = e.touches[0]?.pageY;
+  }
+
+  touchMove = throttle((e) => {
+    this.touchX = e.touches[0]?.pageX - this.touchStartX;
+    this.touchY = e.touches[0]?.pageY - this.touchStartY;
+  }, 80)
+
+  touchEnd = (e) => {
+    const X = Math.abs(this.touchX || 0);
+    const Y = Math.abs(this.touchY || 0)
+    if(X <= 5 && Y <= 5) return;
+    if(Math.abs(this.touchX) > Math.abs(this.touchY)){
+      if(this.touchX > 0){
+        this.handleMove((x, y) => [x, 3-y])
+      }else{
+        this.handleMove()
+      }
+    }else{
+      if(this.touchY > 0){
+        this.handleMove((x, y) => [3-y, x])
+      }else{
+        this.handleMove(((x, y) => [y, x]))
+      }
+    }
+  }
+
+
+
   handleMove = (transform: (x: number, y: number) => [a: number, b: number] = (x, y) => [x, y] ) => {
 
     this.calculating = true
@@ -77,19 +133,23 @@ class TowZeroFourEight extends React.Component<any, IState>{
         if(lines[x1][y1].number !== 0){
           const item = newLines[i][newLines[i].length - 1]
           // console.log(newLines.map(i => i.map(j => j.number)), newLines[i][newLines[i].length - 1]?.number, lines[x1][y1]?.number)
-          if(newLines[i].length > 0 && item.number === lines[x1][y1].number && !item.moved ){
+          if(newLines[i].length > 0 && item.number === lines[x1][y1].number && !item.merged ){
             item.number *= 2;
-            item.moved = true
+            item.merged = true
+            item.animationType = AnimationType.merge
             const [x2, y2] = transform(i, newLines[i].length - 1)
-            item.startLeft = (y1 - y2) * 130
-            item.startTop = (x1 - x2) * 130
+            item.startLeft = (y1 - y2) * this.blockWidth
+            item.startTop = (x1 - x2) * this.blockWidth
           }else{
-            let newItem = Object.assign({}, lines[x1][y1])
+            let newItem = Object.assign({}, lines[x1][y1], {animationType: AnimationType.move})
             newLines[i].push(newItem)
             if(newLines[i].length - 1 !== j ){
               const [x2, y2] = transform(i, newLines[i].length - 1)
-              newItem.startLeft = (y1 - y2) * 130
-              newItem.startTop = (x1 - x2) * 130
+              newItem.baseLeft = (y1 - y2) * this.blockWidth
+              newItem.baseTop = (x1 - x2) * this.blockWidth
+            }else{
+              newItem.baseLeft = 0
+              newItem.baseTop = 0
             }
           }
         }
@@ -97,12 +157,13 @@ class TowZeroFourEight extends React.Component<any, IState>{
       newLines[i] = [...newLines[i], {number: 0},{number: 0},{number: 0},{number: 0},].slice(0, 4)
     }
 
+
     const transformLines: Item[][] = [[],[],[],[]]
     for(let i = 0; i< 4; i++){
       for(let j = 0; j < 4; j++){
         const [x1, y1] = transform(i, j)
         transformLines[x1][y1] = newLines[i][j]
-        transformLines[x1][y1].moved = false
+        transformLines[x1][y1].merged = false
       }
     }
 
@@ -128,11 +189,16 @@ class TowZeroFourEight extends React.Component<any, IState>{
       }
     }
 
+    console.log(able)
+
     for(let i = 0; i < nums; i++){
       if(able.length === 0) return
-      const p = able[Math.floor(Math.random() * (able.length))]
-      let chosenOne = lines[Math.floor(p/4)][p%4]
+
+      const p = Math.floor(Math.random() * (able.length))
+      const index = able[p]
+      let chosenOne = lines[Math.floor(index/4)][index%4]
       chosenOne.number = number
+      chosenOne.animationType = AnimationType.new
       able.splice(p, 1)
     }
   }
@@ -144,18 +210,19 @@ class TowZeroFourEight extends React.Component<any, IState>{
     const { lines } = this.state;
 
     return (
-        <div className="t-2048-container">
+        <div className="t-2048-container" ref={this.ref as React.RefObject<HTMLDivElement>}>
           {
             lines.map((line, x) => line.map((item, y) =>
                 <div className={classnames("block", { empty: item.number === 0 }) }>
                   <AnimationBox
-                      number={item.number}
-                      top={item.startTop || 0}
-                      left={item.startLeft || 0}
-                      time={400}
-                  >
-                    {item.number === 0 ? null : item.number}
-                  </AnimationBox>
+                    number={item.number}
+                    top={item.startTop || 0}
+                    left={item.startLeft || 0}
+                    baseTop={item.baseTop || 0}
+                    baseLeft={item.baseLeft || 0}
+                    time={120}
+                    animationType={item.animationType}
+                 />
                 </div>
             ))
           }

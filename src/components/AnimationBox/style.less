@@ -1,0 +1,51 @@
+.inner-container{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: rgba(238,228,218,.35);
+  .moving-box{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    color: #776e65;
+    background-color: #eee4da;
+    z-index: 1;
+    &.empty{
+      background: transparent;
+    }
+    &.new{
+      animation: new-box cubic-bezier(.66,.08,.44,1.18) 0.3s;
+    }
+  }
+  .mix-box{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    color: #776e65;
+    background-color: #eee4da;
+    z-index: 1;
+  }
+}
+
+@keyframes new-box {
+  0%{
+    transform: scale(0);
+  }
+  50%{
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
