@@ -95,7 +95,7 @@ class TowZeroFourEight extends React.Component<any, IState>{
   touchMove = throttle((e) => {
     this.touchX = e.touches[0]?.pageX - this.touchStartX;
     this.touchY = e.touches[0]?.pageY - this.touchStartY;
-  }, 80)
+  }, 20)
 
   touchEnd = (e) => {
     const X = Math.abs(this.touchX || 0);

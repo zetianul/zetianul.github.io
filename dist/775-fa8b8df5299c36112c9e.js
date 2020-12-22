@@ -332,7 +332,7 @@ var TowZeroFourEight = /*#__PURE__*/function (_React$Component) {
 
       _this.touchX = ((_e$touches$3 = e.touches[0]) === null || _e$touches$3 === void 0 ? void 0 : _e$touches$3.pageX) - _this.touchStartX;
       _this.touchY = ((_e$touches$4 = e.touches[0]) === null || _e$touches$4 === void 0 ? void 0 : _e$touches$4.pageY) - _this.touchStartY;
-    }, 80));
+    }, 20));
 
     _defineProperty(_assertThisInitialized(_this), "touchEnd", function (e) {
       var X = Math.abs(_this.touchX || 0);
