@@ -61,24 +61,6 @@ var Tetris = function Tetris() {
 };
 
 /* harmony default export */ const tetris = (Tetris);
-;// CONCATENATED MODULE: ./src/uitls/index.tsx
-var fitBezier = function fitBezier(c) {
-  return -(c * c) + 1.7 * c;
-};
-var throttle = function throttle(func, time) {
-  var timer = null;
-  return function () {
-    for (var _len = arguments.length, arg = new Array(_len), _key = 0; _key < _len; _key++) {
-      arg[_key] = arguments[_key];
-    }
-
-    if (timer) return;
-    timer = setTimeout(function () {
-      func.apply(void 0, arg);
-      timer = null;
-    }, time);
-  };
-};
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./src/components/AnimationBox/style.less
 var AnimationBox_style = __webpack_require__(272);
 ;// CONCATENATED MODULE: ./src/components/AnimationBox/style.less
@@ -111,7 +93,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 var AnimationType;
 
 (function (AnimationType) {
@@ -135,16 +116,15 @@ var AnimationType;
     var recursion = function recursion() {
       var res = Date.now() - startTime;
 
-      if (props.animationType === AnimationType["new"]) {
-        if (res > props.time) {
-          movingRef.current.style.transform = "scale(".concat(1, ")");
-          return;
-        } else {
-          requestAnimationFrame(function () {
-            movingRef.current.style.transform = "scale(".concat(fitBezier(res / props.time), ")");
-            recursion();
-          });
-        }
+      if (props.animationType === AnimationType["new"]) {// if(res > props.time){
+        //     movingRef.current.style.transform = `scale(${1})`
+        //     return;
+        // }else{
+        //     requestAnimationFrame(() => {
+        //         movingRef.current.style.transform = `scale(${fitBezier(res / props.time)})`
+        //         recursion()
+        //     })
+        // }
       } else if (props.animationType === AnimationType.merge) {
         if (res > props.time) {
           mixRef.current.style.top = "0px";
@@ -195,8 +175,10 @@ var AnimationType;
       left: (props.animationType === AnimationType.merge ? props.left : props.baseLeft) || 0,
       top: (props.animationType === AnimationType.merge ? props.top : props.baseTop) || 0
     }
-  }, props.number === 0 ? null : props.animationType !== AnimationType.merge ? props.number : props.number / 2), props.animationType === AnimationType.merge && /*#__PURE__*/react.createElement("div", {
-    className: "mix-box",
+  }, props.number === 0 ? null : props.animationType !== AnimationType.merge ? props.number : props.number / 2), /*#__PURE__*/react.createElement("div", {
+    className: classnames_default()("mix-box", {
+      visible: props.animationType === AnimationType.merge
+    }),
     ref: mixRef,
     style: {
       left: props.baseLeft || 0,
@@ -204,6 +186,24 @@ var AnimationType;
     }
   }, mergeNumber));
 });
+;// CONCATENATED MODULE: ./src/uitls/index.tsx
+var fitBezier = function fitBezier(c) {
+  return -(c * c) + 1.7 * c;
+};
+var throttle = function throttle(func, time) {
+  var timer = null;
+  return function () {
+    for (var _len = arguments.length, arg = new Array(_len), _key = 0; _key < _len; _key++) {
+      arg[_key] = arguments[_key];
+    }
+
+    if (timer) return;
+    timer = setTimeout(function () {
+      func.apply(void 0, arg);
+      timer = null;
+    }, time);
+  };
+};
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./src/pages/games/2048/style.less
 var _2048_style = __webpack_require__(290);
 ;// CONCATENATED MODULE: ./src/pages/games/2048/style.less
@@ -330,6 +330,7 @@ var TowZeroFourEight = /*#__PURE__*/function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "touchMove", throttle(function (e) {
       var _e$touches$3, _e$touches$4;
 
+      e.preventDefault();
       _this.touchX = ((_e$touches$3 = e.touches[0]) === null || _e$touches$3 === void 0 ? void 0 : _e$touches$3.pageX) - _this.touchStartX;
       _this.touchY = ((_e$touches$4 = e.touches[0]) === null || _e$touches$4 === void 0 ? void 0 : _e$touches$4.pageY) - _this.touchStartY;
     }, 20));
@@ -461,8 +462,6 @@ var TowZeroFourEight = /*#__PURE__*/function (_React$Component) {
         }
       }
 
-      console.log(able);
-
       for (var _i3 = 0; _i3 < nums; _i3++) {
         if (able.length === 0) return;
         var p = Math.floor(Math.random() * able.length);
@@ -548,7 +547,7 @@ var TowZeroFourEight = /*#__PURE__*/function (_React$Component) {
             left: item.startLeft || 0,
             baseTop: item.baseTop || 0,
             baseLeft: item.baseLeft || 0,
-            time: 120,
+            time: 130,
             animationType: item.animationType
           }));
         });
@@ -686,7 +685,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".inner-container {\n  display: inline-block;\n  width: 100%;\n  height: 100%;\n  position: relative;\n  background-color: rgba(238, 228, 218, 0.35);\n}\n.inner-container .moving-box {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 4px;\n  color: #776e65;\n  background-color: #eee4da;\n  z-index: 1;\n}\n.inner-container .moving-box.empty {\n  background: transparent;\n}\n.inner-container .moving-box.new {\n  animation: new-box cubic-bezier(0.66, 0.08, 0.44, 1.18) 0.3s;\n}\n.inner-container .mix-box {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 4px;\n  color: #776e65;\n  background-color: #eee4da;\n  z-index: 1;\n}\n@keyframes new-box {\n  0% {\n    transform: scale(0);\n  }\n  50% {\n    transform: scale(0);\n  }\n  100% {\n    transform: scale(1);\n  }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".inner-container {\n  display: inline-block;\n  width: 100%;\n  height: 100%;\n  position: relative;\n  background-color: rgba(238, 228, 218, 0.35);\n}\n.inner-container .moving-box {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 4px;\n  color: #776e65;\n  background-color: #eee4da;\n  z-index: 1;\n}\n.inner-container .moving-box.empty {\n  background: transparent;\n}\n.inner-container .moving-box.new {\n  animation: new-box cubic-bezier(0.66, 0.08, 0.44, 1.18) 0.3s;\n}\n.inner-container .mix-box {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 4px;\n  color: #776e65;\n  background-color: #eee4da;\n  z-index: 1;\n  visibility: hidden;\n}\n.inner-container .mix-box.visible {\n  visibility: initial;\n}\n@keyframes new-box {\n  0% {\n    transform: scale(0);\n  }\n  50% {\n    transform: scale(0);\n  }\n  100% {\n    transform: scale(1);\n  }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

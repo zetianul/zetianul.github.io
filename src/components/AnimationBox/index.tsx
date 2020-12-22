@@ -34,15 +34,15 @@ export default (props: IProps) => {
             const res = Date.now() - startTime
 
             if(props.animationType === AnimationType.new){
-                if(res > props.time){
-                    movingRef.current.style.transform = `scale(${1})`
-                    return;
-                }else{
-                    requestAnimationFrame(() => {
-                        movingRef.current.style.transform = `scale(${fitBezier(res / props.time)})`
-                        recursion()
-                    })
-                }
+                // if(res > props.time){
+                //     movingRef.current.style.transform = `scale(${1})`
+                //     return;
+                // }else{
+                //     requestAnimationFrame(() => {
+                //         movingRef.current.style.transform = `scale(${fitBezier(res / props.time)})`
+                //         recursion()
+                //     })
+                // }
             }else if(props.animationType === AnimationType.merge){
                 if(res > props.time){
                     mixRef.current.style.top =`0px`
@@ -95,9 +95,13 @@ export default (props: IProps) => {
                 )
             }
         </div>
-        {
-            props.animationType === AnimationType.merge && <div className="mix-box" ref={mixRef} style={{left: props.baseLeft || 0, top: props.baseTop || 0}}>{mergeNumber}</div>
-        }
+        <div 
+            className={classnames("mix-box" ,{visible: props.animationType === AnimationType.merge})} 
+            ref={mixRef} 
+            style={{left: props.baseLeft || 0, top: props.baseTop || 0}}
+        >
+            {mergeNumber}
+        </div>
     </div>
 
 }

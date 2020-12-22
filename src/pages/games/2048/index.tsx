@@ -93,6 +93,7 @@ class TowZeroFourEight extends React.Component<any, IState>{
   }
 
   touchMove = throttle((e) => {
+    e.preventDefault();
     this.touchX = e.touches[0]?.pageX - this.touchStartX;
     this.touchY = e.touches[0]?.pageY - this.touchStartY;
   }, 20)
@@ -189,8 +190,6 @@ class TowZeroFourEight extends React.Component<any, IState>{
       }
     }
 
-    console.log(able)
-
     for(let i = 0; i < nums; i++){
       if(able.length === 0) return
 
@@ -220,7 +219,7 @@ class TowZeroFourEight extends React.Component<any, IState>{
                     left={item.startLeft || 0}
                     baseTop={item.baseTop || 0}
                     baseLeft={item.baseLeft || 0}
-                    time={120}
+                    time={130}
                     animationType={item.animationType}
                  />
                 </div>
